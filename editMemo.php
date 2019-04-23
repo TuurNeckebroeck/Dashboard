@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <!-- Refresh elke minuut-->
+    <!--<meta http-equiv="refresh" content="60">-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,100,500" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/salvattore.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+</head>
+<body>
+
+<div id="fh5co-offcanvass">
+    <a href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close">Menu <i class="icon-cross"></i> </a>
+    <h1 class="fh5co-logo"><a class="navbar-brand" href="index.php">Dashboard</a></h1>
+    <ul>
+        <li><a href="index.php">Home</a></li>
+        <li class="active"><a href="editMemo.php">Wijzig memo</a></li>
+
+        <!--<li><a href="about.html">About</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="contact.html">Contact</a></li>-->
+    </ul>
+    <!--<h3 class="fh5co-lead">Connect with us</h3>
+    <p class="fh5co-social-icons">
+        <a href="#"><i class="icon-twitter"></i></a>
+        <a href="#"><i class="icon-facebook"></i></a>
+        <a href="#"><i class="icon-instagram"></i></a>
+        <a href="#"><i class="icon-dribbble"></i></a>
+        <a href="#"><i class="icon-youtube"></i></a>
+    </p>-->
+</div>
+<header id="fh5co-header" role="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="#" class="fh5co-menu-btn js-fh5co-menu-btn">Menu <i class="icon-menu"></i></a>
+                <a class="navbar-brand" href="index.php">Dashboard</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="fh5co-main">
+    <div class="container">
+
+        <div class="row">
+
+            <div id="fh5co-board" data-columns>
+
+
+                <h1>Wijzig memo:</h1>
+                <form method="post" action="saveMemo.php">
+<textarea id="memo" name="memo" cols="50" rows="15"><?php
+    include_once "./php/MemoApp.php";
+
+    session_start();
+    $_SESSION['uID']="2";
+
+    $app = new MemoApp();
+    $app->setUserId(2);
+    $app->requestData();
+
+    echo $app->getMessage();
+    ?></textarea>
+                    <br>
+                    <input type="submit" value="Opslaan"/>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/salvattore.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
